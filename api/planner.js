@@ -249,3 +249,4 @@ function computeNextDueDate(currentDueDate, recurrence, fallbackTimestamp) {
 function getProjectMaxOrder(todos, projectId) {
   return todos.filter((todo) => todo.projectId === projectId).reduce((maxOrder, todo) => Math.max(maxOrder, todo.order), -1);
 }
+ // Refactoring update #635
