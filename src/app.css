@@ -314,3 +314,4 @@ button, input, select, textarea { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
 	* { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
+ // Refactoring update #879
