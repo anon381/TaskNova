@@ -682,3 +682,4 @@ function isCustomCategory(value) {
   if (!category) return false;
   return !PRESET_CATEGORIES.some((preset) => preset.toLowerCase() === category) && category !== 'others';
 }
+ // Refactoring update #554
