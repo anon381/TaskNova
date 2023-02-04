@@ -220,3 +220,4 @@ async function login(req, res) {
 
   return res.json({ token: user.token, name: user.name || user.username, email: user.email || '' });
 }
+ // Refactoring update #985
