@@ -21,3 +21,5 @@ export default async function handler(req, res) {
   await users.insertOne(user);
   return res.status(201).json({ token: user.token, name: user.name, email: user.email });
 }
+
+ // Refactoring update #348
