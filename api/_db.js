@@ -63,3 +63,5 @@ export function normalizeUser(user) {
     todos: Array.isArray(user.todos) ? user.todos : [],
   };
 }
+
+ // Refactoring update #956
