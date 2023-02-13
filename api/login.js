@@ -17,3 +17,5 @@ export default async function handler(req, res) {
   }
   return res.json({ token: user.token, name: user.name || user.username, email: user.email || '' });
 }
+
+ // Refactoring update #414
