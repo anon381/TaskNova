@@ -27,8 +27,29 @@ jobs:
       - name: The Lint Gate
         run: npm run lint
 
-      - name: The Unit Test Gate
-        run: npm run test
+      - name: The Unit Test Gate (with JUnit Report)
+        run: npm run test:report
 
       - name: Build Gate
         run: npm run build
+
+      - name: Selenium Regression & Deployment Test
+        run: |
+          # Start backend and frontend in background
+          npm run server &
+          npm run dev:ui &
+          
+          # Wait for the frontend to be ready
+          npx wait-on http://localhost:5173 --timeout 60000
+          
+          # Run the selenium script
+          node scripts/selenium-test.js
+        env:
+          CI: true
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-reports
+          path: junit.xml

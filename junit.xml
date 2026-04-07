@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="0.003383929">
+    <testsuite name="src/App.test.jsx" timestamp="2026-04-07T17:44:52.840Z" hostname="pop-os" tests="1" failures="0" errors="0" skipped="0" time="0.003383929">
+        <testcase classname="src/App.test.jsx" name="App &gt; should run tests successfully" time="0.001833834">
+        </testcase>
+    </testsuite>
+</testsuites>
