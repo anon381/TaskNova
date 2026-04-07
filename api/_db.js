@@ -37,7 +37,12 @@ export async function getUsersCollection() {
 }
 
 async function ensureIndexes(users) {
-  const existingIndexes = await users.indexes();
+  let existingIndexes = [];
+  try {
+    existingIndexes = await users.indexes();
+  } catch (e) {
+    if (e.codeName !== 'NamespaceNotFound') throw e;
+  }
   const emailIndex = existingIndexes.find((index) => index.name === 'email_1');
 
   if (emailIndex && !emailIndex.partialFilterExpression) {

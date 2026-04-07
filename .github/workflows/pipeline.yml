@@ -1,0 +1,32 @@
+name: Quality Gate Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: The Lint Gate
+        run: npm run lint
+
+      - name: The Unit Test Gate
+        run: npm run test
+
+      - name: Build Gate
+        run: npm run build
